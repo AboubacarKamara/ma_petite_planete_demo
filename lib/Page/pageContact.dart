@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 
-
-
 class PageContact extends StatefulWidget {
 
   const PageContact({super.key});
@@ -37,26 +35,60 @@ class PageContactWidget extends State<PageContact> {
       }
   }
 
-  Widget contactCard(){
-    return 
-    InkWell(
+  Widget contactCard() {
+    return InkWell(
       onTap: redirectGoogle,
       child: Container(
-        child: Column(
+        padding: const EdgeInsets.all(16.0),
+        margin: const EdgeInsets.symmetric(vertical: 8.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2,
+              blurRadius: 5,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Row(
           children: [
-            const Text("Aboubacar",style: TextStyle(fontSize: 18)),
-            const Text("Kamara",style: TextStyle(fontSize: 18)),
-            Row(
+            Container(
+              width: 80,
+              height: 80,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage('assets/logo_mpp.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            const SizedBox(width: 16),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(numero),
-                IconButton(onPressed: showToast, icon: const Icon(Icons.copy))
+                const Text(
+                  "Aboubacar Kamara",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Row(
+                  children: [
+                    Text(
+                      numero,
+                      style: const TextStyle(fontSize: 14),
+                      ),
+                    IconButton(onPressed: showToast, icon: const Icon(Icons.copy))
+                  ],
+                )
               ],
-            )
+            ),
           ],
         ),
       ),
     );
-    
   }
 
   @override
