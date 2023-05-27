@@ -69,13 +69,11 @@ class PageContactWidget extends State<PageContact> {
           onPressed: () => Navigator.pop(context),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            contactCard()
-          ]
-        ),
+      body: ListView.builder(
+        itemCount: 12, 
+        itemBuilder: (context, index) {
+          return contactCard();
+        },
       ),
     );
   }
