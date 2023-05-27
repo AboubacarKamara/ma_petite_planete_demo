@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 
 
@@ -28,8 +30,11 @@ class PageContactWidget extends State<PageContact> {
     );
   }
 
-  void redirectGoogle(){
-    print("Container appuyé");
+  void redirectGoogle() async {
+    final Uri url = Uri.parse('https://google.fr');
+    if (!await launchUrl(url)) {
+          throw Exception('Erreur du lancement de l\'url');
+      }
   }
 
   Widget contactCard(){
