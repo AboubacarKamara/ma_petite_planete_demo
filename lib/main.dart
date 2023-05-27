@@ -1,3 +1,4 @@
+import 'package:app_ma_petite_planete/Page/pageContact.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,7 +32,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   void redirect(){
-    print("Bouton cliqué");
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const PageContact(),
+      ),
+    );
   }
 
   @override
