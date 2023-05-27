@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:flutter/services.dart';
+
+
 
 class PageContact extends StatefulWidget {
 
@@ -10,8 +14,18 @@ class PageContact extends StatefulWidget {
 
 class PageContactWidget extends State<PageContact> {
 
-  void showToast(){
-    print("Bouton copie numéro appuyé");
+  String numero = "07 69 67 64 04";
+
+  void showToast() async {
+    await Clipboard.setData(ClipboardData(text: numero));
+    Fluttertoast.showToast(
+        msg: "Numéro de téléphone copié avec succès",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.grey,
+        textColor: Colors.black,
+        fontSize: 16.0
+    );
   }
 
   void redirectGoogle(){
@@ -29,7 +43,7 @@ class PageContactWidget extends State<PageContact> {
             const Text("Kamara",style: TextStyle(fontSize: 18)),
             Row(
               children: [
-                const Text("07 69 67 64 04"),
+                Text(numero),
                 IconButton(onPressed: showToast, icon: const Icon(Icons.copy))
               ],
             )
