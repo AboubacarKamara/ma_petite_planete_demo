@@ -61,7 +61,7 @@ class PageContactWidget extends State<PageContact> {
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: AssetImage('assets/logo_mpp.png'),
+                  image: AssetImage('assets/user.png'),
                   fit: BoxFit.cover,
                 ),
               ),

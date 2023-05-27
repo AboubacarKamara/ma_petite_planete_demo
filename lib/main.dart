@@ -48,12 +48,25 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Image.asset(
+              "assets/logo_mpp.png",
+              height: 500,
+            ),
             ElevatedButton.icon(
-              icon:  const Icon(Icons.contact_page),
+              icon: const Icon(Icons.contact_page),
               onPressed: redirect,
-              label: const Text("Page contact")
+              label: const Text(
+                "Page contact",
+                style: TextStyle(fontSize: 16),
+              ),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+              ),
             )
           ],
         ),
